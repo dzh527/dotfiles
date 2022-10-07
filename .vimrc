@@ -8,18 +8,17 @@ let g:vundle_default_git_proto='git'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-airline'
-Plugin 'tpope/vim-commentary'
+Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-surround'
 Plugin 'Yggdroot/indentLine'
-Plugin 'klen/python-mode'
-Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'davidhalter/jedi-vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'majutsushi/tagbar'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 call vundle#end()
@@ -33,18 +32,6 @@ cmap W! w !sudo tee % >/dev/null
 " Use par for prettier line formatting
 set formatprg="PARINIT='rTbgqR B=.,?_A_a Q=_s>|' par\ -w72"
 
-" Return to last edit position when opening files (You want this!)
-augroup last_edit
-  autocmd!
-  autocmd BufReadPost *
-       \ if line("'\"") > 0 && line("'\"") <= line("$") |
-       \   exe "normal! g`\"" |
-       \ endif
-augroup END
-" Remember info about open buffers on close
-set viminfo^=%
-
-" Ignore these files when completing
 set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
@@ -61,6 +48,7 @@ syntax on                     " syntax highlighing
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
 set background=dark           " dark background
+" colorscheme codedark
 set number                    " Display line numbers
 set relativenumber            " relative line numbering
 set title                     " show title in console title bar
@@ -76,7 +64,7 @@ set virtualedit=block       " Let cursor move pcostast the last char in <C-v> mo
 set scrolloff=3             " Keep 3 context lines above and below the cursor
 set backspace=2             " Allow backspacing over autoindent, EOL, and BOL
 set showmatch               " Briefly jump to a paren once it's balanced
-set nowrap                    " Wrap text
+set nowrap                  " Wrap text
 set linebreak               " don't wrap textin the middle of a word
 set autoindent              " always set autoindenting on
 set smartindent             " use smart indent if there is no indent file
@@ -119,6 +107,10 @@ set noswapfile
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 
+autocmd FileType markdown setlocal syntax=off
+autocmd FileType markdown setlocal wrap
+autocmd FileType markdown setlocal cursorline&
+
 " Allow for undo even after closing and re-opening a file
 if exists("+undofile")
   " undofile - This allows you to use undos after exiting and restarting
@@ -139,20 +131,20 @@ hi DiffText gui=underline guibg=red guifg=black
 " Set CtrlP to search by filename rather than path
 " let g:ctrlp_by_filename = 0
 " Preview Markdown files with QuickLook
-map <Leader>v :write<cr>:sil !/usr/bin/qlmanage -p % > /dev/null &<cr>:redraw!<cr>
-set guifont=Sauce\ Code\ Powerline:h14
+" map <Leader>v :write<cr>:sil !/usr/bin/qlmanage -p % > /dev/null &<cr>:redraw!<cr>
+" set guifont=Sauce\ Code\ Powerline:h14
 
-" show colorcolumn only on the lines that is longer than 81 charactors
-highlight ColorColumn ctermbg=DarkGray
-call matchadd('ColorColumn', '\%79v', 100)
+" show colorcolumn only on the lines that is longer than 100 charactors
+highlight ColorColumn ctermbg=DarkRed
+call matchadd('ColorColumn', '\%100v', 100)
 
-" disable colorcolumn from pymode
-let g:pymode_options_colorcolumn = 0
-let g:pymode_lint_cwindow=0
 
 " ==========================================================
 " Key Mappings
 " ==========================================================
+
+
+
 " Toggle Nerdtree
 map <leader>e :NERDTreeToggle<CR>
 " autocmd vimenter * NERDTree
@@ -198,27 +190,11 @@ nmap } }zz
 nmap <leader>t :TagbarToggle<CR>
 
 " toggle indent line
-nmap <leader>d :IndentLinesToggle<CR>
+nmap <leader>in :IndentLinesToggle<CR>
 
 " toggle fugitive Gstatus
-nmap <leader>g :Gstatus<CR>
+nmap <leader>g :Git<CR>
 
-
-" disable arrow keys for moving, up and down to swap lines
-no <down> ddp
-no <left> <Nop>
-no <right> <Nop>
-no <up> ddkP
-
-ino <down> <Nop>
-ino <left> <Nop>
-ino <right> <Nop>
-ino <up> <Nop>
-
-vno <down> <Nop>
-vno <left> <Nop>
-vno <right> <Nop>
-vno <up> <Nop>
 
 
 " Cycle through open buffers with Control + Spacebar
@@ -240,7 +216,7 @@ nnoremap <leader>. :lcd %:p:h<CR>
 nnoremap <NL> i<CR><ESC>
 
 " Break long line by comma
-nnoremap gob  :s/\((\zs\\|,\ *\zs\\|)\)/\r&/g<CR><Bar>:'[,']normal ==<CR>
+" nnoremap gob  :s/\((\zs\\|,\ *\zs\\|)\)/\r&/g<CR><Bar>:'[,']normal ==<CR>
 
 " Fuzzy find files
 nnoremap <silent> <Leader><cr> :CtrlP<CR>
@@ -259,3 +235,22 @@ let g:ctrlp_custom_ignore = {
 
 let g:ctrlp_user_command = ['.git/', 'git ls-files --cached --others  --exclude-standard %s']
 
+
+set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:indentLine_char = "┆"
+
+highlight CocErrorFloat ctermfg=Black
+" highlight CocInfoFloat ctermfg=Black
+highlight CocHintFloat ctermfg=Black
+highlight CocWarningFloat ctermfg=Black
