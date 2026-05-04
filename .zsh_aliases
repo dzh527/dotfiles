@@ -1,0 +1,5 @@
+alias nv=nvim
+alias d='dirs -v'
+alias pu='pushd'
+alias po='popd'
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
