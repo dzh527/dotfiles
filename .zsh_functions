@@ -22,3 +22,7 @@ tika() {
 aeo() {
     chrome --app="https://data.bytedance.net/aeolus/pages/queryEditor/"
 }
+
+jlab() {
+    chrome --app="http://localhost:8888/lab"
+  }
