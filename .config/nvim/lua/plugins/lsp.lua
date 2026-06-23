@@ -5,6 +5,9 @@ return {
       diagnostics = {
         virtual_text = false,
       },
+      servers = {
+        snyk_ls = { enabled = false },
+      },
     },
   },
 }
