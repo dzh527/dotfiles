@@ -1,0 +1,37 @@
+tap "anomalyco/tap"
+tap "farion1231/ccswitch"
+tap "nikitabobko/tap"
+
+# Shell and terminal tools
+brew "fd"
+brew "gh"
+brew "htop"
+brew "httping"
+brew "neovim"
+brew "stow"
+brew "tmux"
+brew "tree"
+brew "ctags"
+
+# Development runtimes and tools
+brew "go"
+brew "gopls"
+brew "node"
+brew "uv"
+
+# Desktop applications
+cask "aerospace"
+cask "alt-tab"
+cask "cc-switch"
+cask "claude-code"
+cask "codex"
+cask "codex-app"
+cask "font-hack-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
+cask "google-chrome"
+cask "iterm2"
+cask "obsidian"
+cask "ollama"
+cask "rectangle"
+cask "visual-studio-code"
+cask "wechat"

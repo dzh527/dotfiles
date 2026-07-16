@@ -1,0 +1,15 @@
+# Repository metadata and documentation
+^/\.git(?:/|$)
+^/\.gitignore$
+^/\.stow-local-ignore$
+^/README(?:\..*)?$
+^/LICENSE(?:\..*)?$
+
+# Bootstrap files belong in the repository, not directly in $HOME
+^/Brewfile$
+^/bootstrap\.sh$
+
+# Local/editor artifacts
+\.DS_Store$
+\.swp$
+\.swo$
