@@ -254,6 +254,9 @@ on-mode-changed = []
     if.app-id = 'com.electron.lark.iron'
     run = 'layout floating'
 
+[[on-window-detected]]
+    if.app-id = 'com.follow.clash'
+    run = 'layout floating'
 # [[on-window-detected]]
 #     if.app-id = 'com.volcengine.corplink'
 #     run = 'layout floating'
