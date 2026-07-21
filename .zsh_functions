@@ -24,5 +24,9 @@ aeo() {
 }
 
 jlab() {
-    chrome --app="http://localhost:8888/lab"
+    chrome --app="http://localhost:9999/lab"
   }
+
+jptserver() {
+  uv run --with jupyter jupyter lab --no-browser --port=9999
+}
