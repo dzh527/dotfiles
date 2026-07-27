@@ -10,7 +10,7 @@ return {
         end
 
         local separator = {
-          fg = colors.orange,
+          fg = colors.magenta,
           bold = true,
         }
 

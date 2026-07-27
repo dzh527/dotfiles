@@ -9,7 +9,7 @@
 local function set_window_separator()
   for _, group in ipairs({ "WinSeparator", "VertSplit", "SnacksWinSeparator" }) do
     vim.api.nvim_set_hl(0, group, {
-      fg = "#ff966c",
+      fg = "#c099ff",
       bold = true,
     })
   end
