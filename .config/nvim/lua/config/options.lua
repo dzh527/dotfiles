@@ -3,6 +3,7 @@
 -- Add any additional options here
 vim.g.mapleader = ","
 vim.g.maplocalleader = "\\"
+vim.g.autoformat = false
 vim.opt.cursorline = true
 vim.opt.conceallevel = 0
 vim.opt.concealcursor = ""

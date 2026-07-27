@@ -1,0 +1,10 @@
+[user]
+	name = dingzhao.123
+	email = dingzhao.123@bytedance.com
+[url "ssh://dingzhao.123@git.byted.org"]
+	insteadOf = https://git.byted.org
+	insteadOf = https://review.byted.org
+[url "git@code.byted.org"]
+	insteadOf = https://code.byted.org/
+[safe]
+	directory = *
