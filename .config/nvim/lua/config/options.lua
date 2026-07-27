@@ -9,3 +9,4 @@ vim.opt.conceallevel = 0
 vim.opt.concealcursor = ""
 vim.opt.spelllang = { "en", "cjk" }
 vim.opt.smartindent = false
+vim.opt.fillchars:append({ vert = "┃" })
