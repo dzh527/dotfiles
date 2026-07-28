@@ -22,3 +22,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.schedule(set_window_separator)
   end,
 })
+
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "CursorHold" }, {
+    group = vim.api.nvim_create_augroup("reload_external_changes", { clear = true }),
+    callback = function()
+      if vim.bo.buftype == "" then
+        vim.cmd("checktime")
+      end
+    end,
+  })

@@ -10,3 +10,4 @@ vim.opt.concealcursor = ""
 vim.opt.spelllang = { "en", "cjk" }
 vim.opt.smartindent = false
 vim.opt.fillchars:append({ vert = "┃" })
+vim.opt.updatetime = 500
