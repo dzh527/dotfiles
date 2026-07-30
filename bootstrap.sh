@@ -164,9 +164,9 @@ stow_dotfiles() {
   log "Linking dotfiles with GNU Stow"
   run stow \
     --restow \
-    --dir "$(dirname "$DOTFILES_DIR")" \
+    --dir "$DOTFILES_DIR" \
     --target "$HOME" \
-    "$(basename "$DOTFILES_DIR")"
+    .
 }
 
 apply_macos_defaults() {
