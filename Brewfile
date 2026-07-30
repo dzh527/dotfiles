@@ -12,6 +12,7 @@ brew "stow"
 brew "tmux"
 brew "tree"
 brew "ctags"
+brew "borders"
 
 # Development runtimes and tools
 brew "go"
