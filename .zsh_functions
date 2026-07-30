@@ -6,19 +6,6 @@ gpt() {
     chrome --app="https://chatgpt.com"
 }
 
-kb() {
-    chrome --app="https://bytedance.larkoffice.com/docx/XnrlduDj2oh3ZRxnaDUclIIonph"
-}
-
-td() {
-    chrome --app="https://bytedance.larkoffice.com/docx/UGgOdpQxuox3VOxIykOcTHlCnWc"
-}
-
-
-tika() {
-    chrome --app="https://tika.byteintl.net/search/new"
-}
-
 aeo() {
     chrome --app="https://data.bytedance.net/aeolus/pages/queryEditor/"
 }
