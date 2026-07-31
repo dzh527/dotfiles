@@ -9,6 +9,7 @@ return {
         enabled = false
       },
       servers = {
+        bashls = {},
         glsl_analyzer = { enabled = false },
         pylsp = { enabled = false },
         snyk_ls = { enabled = false },
