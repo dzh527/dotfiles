@@ -6,3 +6,5 @@ vim.keymap.set("n", "<leader>S", function()
   vim.cmd([[%s/\s\+$//e]])
   vim.fn.setreg("/", "")
 end, { desc = "Remove trailing whitespace" })
+
+vim.keymap.set("n", "Y", "yy", { desc = "Yank line" })
