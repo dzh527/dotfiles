@@ -11,7 +11,6 @@ vim.g.python_indent = {
 vim.opt.cursorline = true
 vim.opt.conceallevel = 0
 vim.opt.concealcursor = ""
-vim.opt.scrolloff = 3
 vim.opt.spelllang = { "en", "cjk" }
 vim.opt.smartindent = false
 vim.opt.fillchars:append({ vert = "┃" })

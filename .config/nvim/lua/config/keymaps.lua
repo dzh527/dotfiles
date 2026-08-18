@@ -8,3 +8,10 @@ vim.keymap.set("n", "<leader>S", function()
 end, { desc = "Remove trailing whitespace" })
 
 vim.keymap.set("n", "Y", "yy", { desc = "Yank line" })
+
+-- Keep jump targets centered while preserving LazyVim's search direction and fold-opening behavior.
+vim.keymap.set("n", "G", "Gzz", { desc = "Go to line and center" })
+vim.keymap.set("n", "n", "'Nn'[v:searchforward].'zvzz'", { expr = true, desc = "Next search result and center" })
+vim.keymap.set("n", "N", "'nN'[v:searchforward].'zvzz'", { expr = true, desc = "Previous search result and center" })
+vim.keymap.set("n", "{", "{zz", { desc = "Previous paragraph and center" })
+vim.keymap.set("n", "}", "}zz", { desc = "Next paragraph and center" })
