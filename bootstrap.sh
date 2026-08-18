@@ -159,7 +159,13 @@ stow_dotfiles() {
     backup_conflict "$DOTFILES_DIR/$file" "$HOME/$file"
   done
 
+  # Keep Herdr's generated session, logs, and sockets outside the Stow package.
+  run mkdir -p "$HOME/.config/herdr"
+
   backup_conflict "$DOTFILES_DIR/.config/nvim" "$HOME/.config/nvim"
+  backup_conflict \
+    "$DOTFILES_DIR/.config/herdr/config.toml" \
+    "$HOME/.config/herdr/config.toml"
 
   log "Linking dotfiles with GNU Stow"
   run stow \

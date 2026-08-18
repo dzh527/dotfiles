@@ -242,6 +242,7 @@ on-mode-changed = []
     8 = ['LS27D80xU', 'main']
     9 = ['LS27D80xU', 'main']
     M = '^built-in retina display$'
+    I = '^built-in retina display$'
 
 
 
