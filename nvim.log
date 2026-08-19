@@ -1,0 +1,2 @@
+WRN 2026-08-19T14:24:23.321 ?.88444    server_start:197: Failed to start server: operation not permitted: /var/folders/36/hbfg1z1j2hb97n5w0wfqqpdc0000gn/T/nvim.bytedance/Ks9del/nvim.88444.0
+WRN 2026-08-19T14:24:28.419 ?.88461    server_start:197: Failed to start server: operation not permitted: /var/folders/36/hbfg1z1j2hb97n5w0wfqqpdc0000gn/T/nvim.bytedance/CXlQEc/nvim.88461.0

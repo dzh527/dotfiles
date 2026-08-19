@@ -1,23 +1,27 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
     opts = function(_, opts)
-      local on_highlights = opts.on_highlights
-
-      opts.on_highlights = function(highlights, colors)
-        if on_highlights then
-          on_highlights(highlights, colors)
-        end
-
+      opts.flavour = "macchiato"
+      opts.custom_highlights = function(colors)
         local separator = {
-          fg = colors.magenta,
+          fg = colors.mauve,
           bold = true,
         }
 
-        highlights.WinSeparator = separator
-        highlights.VertSplit = separator
-        highlights.SnacksWinSeparator = separator
+        return {
+          WinSeparator = separator,
+          VertSplit = separator,
+          SnacksWinSeparator = separator,
+        }
       end
     end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin-macchiato",
+    },
   },
 }
