@@ -14,3 +14,5 @@ pane_gaps = false
 
 [keys]
 prefix = 'ctrl+a'
+split_vertical = 'prefix+|'
+split_horizontal = 'prefix+minus'
