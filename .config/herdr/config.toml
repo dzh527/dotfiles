@@ -1,8 +1,8 @@
 onboarding = false
 
-[theme]
-name = "terminal"
-auto_switch = false
+# [theme]
+# name = "terminal"
+# auto_switch = false
 
 [ui.sound]
 enabled = false
