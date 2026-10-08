@@ -10,10 +10,27 @@ aeo() {
     chrome --app="https://data.bytedance.net/aeolus/pages/queryEditor/"
 }
 
-jlab() {
-    chrome --app="http://localhost:9999/lab"
-  }
-
 jptserver() {
-  uv run --with jupyter jupyter lab --no-browser --port=9999
+    ~/Workspace/.venv/bin/jupyter lab --no-browser --port=9999
+}
+
+jup() {
+    curl -s -o /dev/null --max-time 1 http://127.0.0.1:9999/api/status && return 0
+    tmux kill-session -t jlab 2>/dev/null
+    tmux new-session -d -s jlab "zsh -ic jptserver"
+    for i in {1..150}; do
+        curl -s -o /dev/null --max-time 1 http://127.0.0.1:9999/api/status && return 0
+        sleep 0.2
+    done
+    echo "jupyter is not up in 30s: tmux attach -t jlab" >&2
+    return 1
+}
+
+jlab() {
+    jup || return 1
+    chrome --app="http://localhost:9999/lab"
+}
+
+jdown() {
+    tmux kill-session -t jlab 2>/dev/null && echo "jupyter server (tmux: jlab) is stopped" || echo "no jlab session"
 }
