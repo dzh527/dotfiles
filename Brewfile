@@ -4,6 +4,7 @@ tap "nikitabobko/tap"
 
 # Shell and terminal tools
 brew "fd"
+brew "ripgrep"
 brew "gh"
 brew "htop"
 brew "httping"
@@ -17,6 +18,7 @@ brew "borders"
 # Development runtimes and tools
 brew "go"
 brew "gopls"
+brew "lazygit"
 brew "node"
 brew "uv"
 
